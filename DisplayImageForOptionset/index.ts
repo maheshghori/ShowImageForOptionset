@@ -6,8 +6,6 @@ export class DisplayImageForOptionset implements ComponentFramework.StandardCont
 	private _optionsetText: string;
 	// Power Apps component framework delegate which will be assigned to this object which would be called whenever any update happens.
 	private _notifyOutputChanged: () => void;
-	// label element created as part of this component
-	private lblRemainingCount: HTMLLabelElement;
 	private imageElement: HTMLImageElement;
 	// reference to the component container HTMLDivElement
 	// This element contains all elements of our code component example
@@ -59,7 +57,7 @@ export class DisplayImageForOptionset implements ComponentFramework.StandardCont
 		this.imageElement = document.createElement("img");
 		this.imageElement.setAttribute("id", "imgOptionset");
 		this.imageElement.setAttribute("class", "image");
-		this.imageElement.src = "https://learningjune2020.crm6.dynamics.com/WebResources/new_" + this._optionsetText.replace(" ", "");
+		this.imageElement.src = "<Dynamics365URL>/WebResources/new_" + this._optionsetText.replace(" ", "");
 		this.imageElement.height = 100;
 		this.imageElement.width = 100;
 
@@ -93,7 +91,7 @@ export class DisplayImageForOptionset implements ComponentFramework.StandardCont
 	public refreshData(evt: Event): void {
 		this._selectedOptionsetValue = this._dropdown.value;
 		this.SetOptionsetValues();
-		this.imageElement.src = "https://learningjune2020.crm6.dynamics.com/WebResources/new_" + this._optionsetText.replace(" ", "");
+		this.imageElement.src = "<Dynamics365URL>/WebResources/new_" + this._optionsetText.replace(" ", "");
 
 		this._notifyOutputChanged();
 	}
